@@ -116,7 +116,6 @@ window.addEventListener("keydown", (e) => {
 		console.log(celestialSlots[0]);
 		console.log(celestialSlots[1]);
 		console.log(celesImage[0]);
-		adinaSprite();
 		changeSlot();
 		updateGame(); 
 	} else if (keyList.includes(e.key) && !isReadingStar && duringGame) {
@@ -291,13 +290,17 @@ function isConjuncted() {
 
 //입력하는 키에 따라 나가는 이펙트
 function effect(pressedKey) {
-	if (pressedKey == 'q') {
-		luminary();}
+	if (pressedKey.includes('q')) {
+		luminary(pressedKey);
+	}
+	
 	if (pressedKey == 'w'){
-		astralTrine();}
+		astralTrine();
+	}
+	
 	if (pressedKey == 'e'){
-		console.log('EEE');
-		fatedHorizon();}
+		fatedHorizon();
+	}
 }
 
 function useSlot(pressedKey) {
