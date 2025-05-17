@@ -70,13 +70,20 @@ h1 {
 .sprites {
   position: relative;
   width: 1000px;
-  height: 300px;
+  height: 500px;
   margin: 0 0 20px;
-  background-color: red;
 }
 
 .hide {
   display: none;
+}
+
+.backgroundImage {
+  position: absolute;
+  display: inline-block;
+  width: 1000px;
+  height: 500px;
+  z-index: 3;
 }
 
 .adina {
@@ -86,12 +93,13 @@ h1 {
   height: 200px;
   top: 50px;
   left: 100px;
-  background-color: blue;
+  z-index: 2;
 }
 
 .adina-sprite {
   width: 100%;
   height: 100%;
+  z-index: 2;
 }
 
 .boar {
@@ -101,43 +109,48 @@ h1 {
   height: 200px;
   top: 50px;
   right: 100px;
-  background-color: green;
+  z-index: 2;
 }
 .boar-sprite {
   width: 100%;
   height: 100%;
+  z-index: 2;
 }
+
 .luminary {
   position: absolute;
   display: inline-block;
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   top: 150px;
   left: 300px;
-  background-color: yellow;
   animation-name: luminary-effect;
   animation-duration: 1s;
   animation-delay: 0.2s;
+  z-index: 1;
 }
 
 .astralTrine {
   position: absolute;
   display: inline-block;
-  width: 250px;
-  height: 10px;
-  top: 270px;
-  right: 75px;
-  background-color: yellow;
+  width: 416px;
+  height: 140px;
+  top: 180px;
+  left: 800px;
+  z-index: 1;
 }
 
 .fatedHorizon {
   position: absolute;
   display: inline-block;
-  width: 250px;
-  height: 10px;
-  top: 70px;
-  right: 75px;
-  background-color: yellow;
+  width: 150px;
+  height: 150px;
+  top: 30px;
+  left: 800px;
+  animation-name: fatedHorizon-effect;
+  animation-duration: 1s;
+  animation-delay: 0.2s;
+  z-index: 1;
 }
 
 @keyframes luminary-effect {
@@ -147,6 +160,16 @@ h1 {
 
   100% {
     left: 700px;
+  }
+}
+
+@keyframes fatedHorizon-effect {
+  0% {
+    top: 30px;
+  }
+
+  100% {
+    top: 150px;
   }
 }
 

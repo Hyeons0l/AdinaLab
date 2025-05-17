@@ -1,18 +1,17 @@
-function fatedHorizon() {
+function fatedHorizon(pressedKey) {
+const fatedHorizonElement = document.createElement('img');
 
-    const fatedHorizonElement = document.createElement('div');
-  
-    if (isConjuncted == false) 
-      fatedHorizonElement.innerText = 'Econj';
-    else
-      if  (celestialSlots[1] == 'sun') {
-        fatedHorizonElement.innerText = 'Esun';}
-      else if (celestialSlots[1] == 'moon') {
-        fatedHorizonElement.innerText = 'Emoon'; }
-      else if (celestialSlots[1] == 'star') {
-        fatedHorizonElement.innerText = 'Estar';
-    }
-    fatedHorizonElement.classList.add('fatedHorizon');
+   if (pressedKey == 'conj_e') {
+    fatedHorizonElement.src = EskillEffect[3];
+  } else if (celestialSlots[1] == 'sun') {
+    fatedHorizonElement.src = EskillEffect[0];
+  } else if (celestialSlots[1] == 'moon') {
+    fatedHorizonElement.src = EskillEffect[1];
+  } else if (celestialSlots[1] == 'star') {
+    fatedHorizonElement.src = EskillEffect[2];
+  }
+
+  fatedHorizonElement.classList.add('fatedHorizon');
   
     const spritesElement = document.querySelector('.sprites');
     spritesElement.appendChild(fatedHorizonElement);

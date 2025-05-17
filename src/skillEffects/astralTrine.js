@@ -1,17 +1,17 @@
-function astralTrine() {
+function astralTrine(pressedKey) {
+  const astralTrineElement = document.createElement('img');
 
-  const astralTrineElement = document.createElement('div');
-
-  if (isConjuncted == false) 
-    astralTrineElement.innerText = 'Wconj';
-  else
-    if  (celestialSlots[1] == 'sun') {
-      astralTrineElement.innerText = 'Wsun';}
-    else if (celestialSlots[1] == 'moon') {
-      astralTrineElement.innerText = 'Wmoon'; }
-    else if (celestialSlots[1] == 'star') {
-      astralTrineElement.innerText = 'Wstar';
+  if (pressedKey == 'conj_w') {
+    astralTrineElement.src = WskillEffect[3];
+  } else if (celestialSlots[1] == 'sun') {
+    astralTrineElement.src = WskillEffect[0];
+  } else if (celestialSlots[1] == 'moon') {
+    astralTrineElement.src = WskillEffect[1];
+  } else if (celestialSlots[1] == 'star') {
+    astralTrineElement.src = WskillEffect[2];
   }
+
+
   astralTrineElement.classList.add('astralTrine');
 
   const spritesElement = document.querySelector('.sprites');

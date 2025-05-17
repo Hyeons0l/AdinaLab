@@ -15,6 +15,39 @@ celesImage[1].src = './assets/moon.png';
 celesImage[2] = new Image();
 celesImage[2].src = './assets/star.png';
 
+//Q 스킬 이펙트 로드
+const QskillEffect = [];
+QskillEffect[0] = new Image();
+QskillEffect[0]  = './assets/Q/Q_sun.png';
+QskillEffect[1] = new Image();
+QskillEffect[1]  = './assets/Q/Q_moon.png';
+QskillEffect[2] = new Image();
+QskillEffect[2]  = './assets/Q/Q_star.png';
+QskillEffect[3] = new Image();
+QskillEffect[3] = './assets/Q/Q_conj.png';
+
+//W 스킬 이펙트 로드
+const WskillEffect = [];
+WskillEffect[0] = new Image();
+WskillEffect[0]  = './assets/W/W_sun.png';
+WskillEffect[1] = new Image();
+WskillEffect[1]  = './assets/W/W_moon.png';
+WskillEffect[2] = new Image();
+WskillEffect[2]  = './assets/W/W_star.png';
+WskillEffect[3] = new Image();
+WskillEffect[3] = './assets/W/W_conj.png';
+
+//E 스킬 이펙트 로드
+const EskillEffect = [];
+EskillEffect[0] = new Image();
+EskillEffect[0]  = './assets/E/E_sun.png';
+EskillEffect[1] = new Image();
+EskillEffect[1]  = './assets/E/E_moon.png';
+EskillEffect[2] = new Image();
+EskillEffect[2]  = './assets/E/E_star.png';
+EskillEffect[3] = new Image();
+EskillEffect[3] = './assets/E/E_conj.png';
+
 // 정사각형 이미지들 로드
 const skillImages = [];
 skillImages[0] = new Image();
@@ -285,19 +318,18 @@ function isConjuncted() {
 	}
 }
 
-// todo 필요한 이펙트 추가
-// todo 입력한 키에 맞게 이펙트 생성하는 로직 추가
-// todo 현재 키 입력시의 천체를 확인하는 로직 추가
+// todo CLEAR 필요한 이펙트 추가
+// todo CLEAR입력한 키에 맞게 이펙트 생성하는 로직 추가
+// todo CLEAR 현재 키 입력시의 천체를 확인하는 로직 추가
 
 //입력하는 키에 따라 나가는 이펙트
 function effect(pressedKey) {
-	if (pressedKey == 'q') {
-		luminary();}
-	if (pressedKey == 'w'){
-		astralTrine();}
-	if (pressedKey == 'e'){
-		console.log('EEE');
-		fatedHorizon();}
+	if (pressedKey == 'q' || pressedKey == 'conj_q') {;
+		luminary(pressedKey);}
+	if (pressedKey == 'w' || pressedKey == 'conj_w'){
+		astralTrine(pressedKey);}
+	if (pressedKey == 'e' || pressedKey == 'conj_e'){
+		fatedHorizon(pressedKey);}
 }
 
 function useSlot(pressedKey) {
@@ -335,11 +367,11 @@ function useSlot(pressedKey) {
 		if (conj) {
 			pressedKeySFX = 'conj'
 			adinaSprite(pressedKey)
-			boarSprite()
+			setTimeout(() => boarSprite(), 900);
 		} else {
 			pressedKeySFX = pressedKey
 			adinaSprite(pressedKey)
-			boarSprite()
+			setTimeout(() => boarSprite(), 900);
 		}
 		playSound(skillSFX[orbs.indexOf(celestialSlots[1])][keyList.indexOf(pressedKeySFX)]);
 		keySlots.push(pressedKey);
